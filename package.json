@@ -1,0 +1,14 @@
+{
+  "name": "lobe_webpage",
+  "version": "1.0.0",
+  "description": "A landing web page",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html --public-url ./"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.8.2"
+  }
+}

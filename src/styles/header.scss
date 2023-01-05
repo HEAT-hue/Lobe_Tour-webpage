@@ -1,0 +1,143 @@
+/************************ HEADER SECTION ************************/
+header {
+  nav {
+    background-color: $bgLg;
+    backdrop-filter: blur(15px);
+    padding-inline: $page-padding-inline;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $nav-height;
+
+    .nav-menu {
+      border-top: 1px solid rgba(149, 146, 146, 0.195);
+      background-color: $bgLg;
+      // backdrop-filter: blur(15px);
+      color: $txtSecColor;
+      padding: 2rem;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 480px;
+      @include flex(column, flex-start, flex-start);
+      gap: 2.2rem;
+      display: none;
+
+      li {
+        font-size: 1.3rem;
+
+        &:hover {
+          color: $txtPryColor;
+        }
+
+        &:last-child {
+          margin-top: 20px;
+          align-self: stretch;
+
+          a {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .nav-menu.active {
+      display: flex;
+    }
+
+    .nav-btn {
+      display: none;
+    }
+
+    .hamburger {
+      cursor: pointer;
+      width: 38px;
+      z-index: 10;
+      background-color: #eef0f2;
+      padding: 0.6rem 0.6rem;
+      border-radius: 50%;
+
+      .bar {
+        background-color: black;
+        display: block;
+        width: 100%;
+        height: 2px;
+        margin: 3px auto;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+      transform: translateY(5px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+      transform: translateY(-5px) rotate(-45deg);
+    }
+  }
+
+  @media screen and (min-width: 800px) {
+    nav {
+      .nav-menu {
+        display: block;
+        height: 100%;
+        position: unset;
+        width: auto;
+        background-color: inherit;
+        @include flex(row, space-between, center);
+        gap: 3rem;
+        padding: 10px 0;
+
+        li {
+          font-size: 1rem;
+
+          &:last-child {
+            margin-top: 20px;
+            align-self: stretch;
+
+            a {
+              width: 100%;
+            }
+          }
+          &:hover {
+            color: $txtPryColor;
+          }
+        }
+
+        .nav-item {
+          &:last-child {
+            display: none;
+          }
+        }
+
+        & > * {
+          flex-shrink: 0;
+        }
+      }
+
+      .hamburger {
+        display: none;
+      }
+
+      .nav-btn {
+        display: unset;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 45px;
+        padding: 0px 25px;
+      }
+
+      @media screen and (min-width: 1200px) {
+        padding-inline: 64px;
+      }
+    }
+  }
+}

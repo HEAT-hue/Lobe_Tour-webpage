@@ -1,0 +1,124 @@
+/***************** Footer styles *****************/
+footer {
+  padding-bottom: 80px;
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-top: 1px solid #80808048;
+
+  .footer-wrapper {
+    width: 90%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding-block: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 120px));
+    justify-content: center;
+    gap: 60px 30px;
+  }
+
+  .footer-grp {
+    .footer-menu {
+      text-align: center;
+
+      h3 {
+        font-size: 1rem;
+        color: #312f2f;
+      }
+
+      li {
+        color: $txtSecColor;
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+        &:first-child {
+          color: red !important;
+          margin-bottom: 30px;
+        }
+
+        a {
+          &:hover {
+            color: $txtSecColor;
+            transform: scale(1.5 1.5);
+          }
+        }
+      }
+    }
+  }
+
+  .footer-grp--desktop {
+    display: none;
+  }
+
+  .footer-grp--mobile {
+    .footer-menu {
+      .logo-title {
+        font-size: 1.7rem;
+        margin-bottom: 2rem;
+      }
+
+      li {
+        &:first-child {
+          margin-bottom: 18px;
+        }
+      }
+    }
+  }
+
+  .footer-icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 2rem;
+
+    @media screen and (min-width: 1205px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .bi {
+      &:hover {
+        opacity: 0.9;
+        cursor: pointer;
+      }
+    }
+
+    .bi-reddit {
+      color: #ed001c;
+    }
+
+    .bi-youtube {
+      color: #ff0000;
+      margin-inline: 15px;
+    }
+
+    .bi-twitter {
+      color: #00acee;
+    }
+  }
+
+  @media screen and (min-width: 650px) {
+    .footer-wrapper {
+      width: 93%;
+      grid-template-columns: 3fr repeat(3, minmax(0, 2fr)) 1fr;
+      column-gap: 0;
+      max-width: 820px;
+    }
+
+    .footer-grp {
+      .logo-title {
+        font-size: 1.3rem;
+      }
+      .footer-menu {
+        text-align: left;
+      }
+    }
+    .footer-grp--desktop {
+      display: block;
+    }
+    .footer-grp--mobile {
+      display: none;
+    }
+  }
+}
